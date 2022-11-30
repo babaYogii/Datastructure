@@ -53,17 +53,41 @@ public class Graph{
 
     }
 
+    boolean pathExist(int source , int destination){
+        boolean visited[]=new boolean[v];
+        Queue<Integer> q= new LinkedList<>();
+        q.add(source);
+        visited[source]=true;
+
+        while(!q.isEmpty()){
+            int first=q.poll();
+            System.out.print(first+" ");
+            if(destination==first) return true;
+            for(int i:adj.get(first)){
+                if(!visited[i]){
+                    visited[i]=true;
+                    q.add(i);
+                }
+            }
+        }
+
+
+        return false;
+    }
+
 
     public static void main(String[] args) {
-        Graph g=new Graph(4);
+        Graph g=new Graph(5);
         g.addEdge(0,1);
         g.addEdge(0,2);
         g.addEdge(1,2);
         g.addEdge(2,3);
+        g.addEdge(2,4);
 //        g.addEdge();
 
-       g.bfs(0);
+//       g.bfs(0);
 //        g.printList();
+        System.out.println(g.pathExist(0,5));
     }
 
 

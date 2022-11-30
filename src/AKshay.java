@@ -1,4 +1,3 @@
-import java.util.Arrays;
 import java.util.Scanner;
 
 public class AKshay {
@@ -27,7 +26,6 @@ public class AKshay {
         }
 
         System.out.println(count);
-
 
     }
 }
